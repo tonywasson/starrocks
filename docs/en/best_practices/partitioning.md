@@ -94,10 +94,10 @@ When tenant-specific DML/DDL is necessary or large-scale tenants are present, be
 
 ```sql
 CREATE TABLE activity (
-  tenant_id INT,
   dt DATETIME,
   id BIGINT,
-  ....
+  tenant_id INT,
+  ...
 )
 DUPLICATE KEY(dt, id)
 PARTITION BY tenant_id, date_trunc('MONTH', dt)
